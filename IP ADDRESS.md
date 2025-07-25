@@ -82,14 +82,127 @@ Still, classful networking is taught because:
 Example:
 
 ---
-
-##  Coming Soon
-- Subnetting basics
-- CIDR notation examples
-- Practice problems
+#  Subnetting – Breaking Down IP Networks
 
 ---
 
- Written by a cybersecurity student learning the ropes.
+##  What is Subnetting?
+
+**Subnetting** = Dividing a large network into smaller, more manageable chunks (called *subnets*).
+
+It helps devices figure out:
+- "Which part of my IP address tells me where I live (network)?"
+- "Which part tells me who I am (host)?"
+
+---
+
+## Example
+
+- IP Address: `192.168.1.10`  
+- Subnet Mask: `255.255.255.0`
+
+This means:
+- `192.168.1` → network part
+- `.10` → host (your specific device)
+
+---
+
+### Benefits of Subnetting
+
+- Better network organization  
+- Improved security  
+- Efficient IP address use  
+
+---
+
+## Key Subnet Terms
+
+| Term              | Meaning |
+|------------------|---------|
+| **Network Address** | First IP in the subnet (represents the subnet itself) |
+| **Broadcast Address** | Last IP (used to send messages to all devices in the subnet) |
+| **Host Addresses** | All the usable IPs in between |
+
+---
+
+## Subnet Masks & CIDR Notation
+
+- **Subnet mask**: Tells the system what portion of the IP is the network
+- **CIDR** = *Classless Inter-Domain Routing*  
+  Written as a slash (`/`) with number of bits used for the network
+
+---
+
+### CIDR Subnet Table
+
+| CIDR | Subnet Mask         | Usable Hosts |
+|------|---------------------|--------------|
+| /24  | 255.255.255.0       | 254          |
+| /25  | 255.255.255.128     | 126          |
+| /26  | 255.255.255.192     | 62           |
+| /27  | 255.255.255.224     | 30           |
+
+>  Always subtract 2 from total hosts (1 for the network, 1 for broadcast)
+
+---
+
+## CIDR = “Cider” (like the drink)
+
+`192.168.1.0/24`  
+- `24 bits` used for network  
+- `8 bits` left for hosts → `2^8 = 256` addresses  
+- Minus 2 → `254 usable hosts`
+
+---
+
+##  Subnetting Analogy
+
+Imagine hosting a giant party.
+
+- IP address = name tag  
+- Subnet = the table they're assigned to  
+- CIDR = how many tables and how many seats per table  
+
+---
+
+##  Subnetting Example
+
+**Goal**: Divide `192.168.1.0/24` into 4 subnets
+
+**Step 1**: How many bits do you need?  
+→ `2^n ≥ 4` → `n = 2`
+
+**Step 2**: Add to the CIDR  
+→ `/24 + 2 = /26`
+
+**Step 3**: Block size  
+→ `2^(32 - 26) = 64` addresses per subnet
+
+---
+
+### 🧾 Final Subnets:
+
+| Subnet # | IP Range                     |
+|----------|------------------------------|
+| 1        | 192.168.1.0 – 192.168.1.63    |
+| 2        | 192.168.1.64 – 192.168.1.127  |
+| 3        | 192.168.1.128 – 192.168.1.191 |
+| 4        | 192.168.1.192 – 192.168.1.255 |
+
+---
+
+###  For Subnet `192.168.1.0/26`
+
+- **Network Address**: `192.168.1.0`
+- **Broadcast Address**: `192.168.1.63`
+- **Valid Hosts**: `192.168.1.1 – 192.168.1.62`
+
+---
+
+## Remember:
+
+- CIDR notation saves space and adds flexibility.
+- Subnetting helps isolate traffic, secure systems, and better use IP ranges.
+
 
 
