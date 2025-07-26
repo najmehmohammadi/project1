@@ -79,8 +79,6 @@ Still, classful networking is taught because:
 - **8 bits** = 1 byte (or 1 octet)
 - IP addresses are **32 bits**: 4 parts × 8 bits
 
-Example:
-
 ---
 #  Subnetting – Breaking Down IP Networks
 
