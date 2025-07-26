@@ -249,7 +249,6 @@ Solve for `n` → this is the number of bits to borrow.
 
 - CIDR notation saves space and adds flexibility.
 - Subnetting helps isolate traffic, secure systems, and better use IP ranges.
-- 
 ---
 
 
