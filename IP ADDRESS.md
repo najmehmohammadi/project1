@@ -162,6 +162,74 @@ Imagine hosting a giant party.
 - IP address = name tag  
 - Subnet = the table they're assigned to  
 - CIDR = how many tables and how many seats per table  
+---
+# Why Do We Borrow Bits in Subnetting?
+
+## Goal:
+To divide a large network (like `192.168.1.0/24`) into smaller **sub-networks (subnets)**.
+
+---
+
+## IP Address Structure:
+An IP address is **32 bits** total, split into:
+
+- **Network bits** – identify the network or subnet
+- **Host bits** – identify individual devices (hosts) within the subnet
+
+---
+
+##  Why Borrow Bits?
+
+We **borrow bits from the host portion** to create more subnets.
+
+### Formula:
+2^n ≥ number of required subnets
+
+Solve for `n` → this is the number of bits to borrow.
+
+| Bits Borrowed | # of Subnets |
+|---------------|--------------|
+| 1 bit         | 2 subnets    |
+| 2 bits        | 4 subnets    |
+| 3 bits        | 8 subnets    |
+| ...           | ...          |
+
+---
+
+## What Changes When You Borrow Bits?
+
+| What Changes | Result |
+|--------------|--------|
+| Subnet mask increases (e.g. `/24` → `/26`) | More network bits |
+| Hosts per subnet decrease | Fewer devices per subnet |
+| Subnet count increases | More divisions, more control |
+
+---
+
+## Subnetting Example:
+
+**Task:** Divide `192.168.1.0/24` into **4 subnets**
+
+1. Use formula: `2^n ≥ 4` → `n = 2`
+2. Add bits to CIDR: `/24 + 2 = /26`
+3. Block size = `2^(32 - 26) = 64 IPs per subnet`
+   - 62 usable (1 for network, 1 for broadcast)
+
+### Resulting Subnets:
+
+| Subnet | IP Range | Broadcast |
+|--------|----------|-----------|
+| Subnet 1 | 192.168.1.0 – 192.168.1.63 | 192.168.1.63 |
+| Subnet 2 | 192.168.1.64 – 192.168.1.127 | 192.168.1.127 |
+| Subnet 3 | 192.168.1.128 – 192.168.1.191 | 192.168.1.191 |
+| Subnet 4 | 192.168.1.192 – 192.168.1.255 | 192.168.1.255 |
+
+---
+
+## Summary
+
+> Borrowing bits allows you to create more subnets by shrinking the number of available host IPs.  
+> This helps you organize, secure, and scale your network more efficiently.
 
 ---
 
@@ -203,6 +271,9 @@ Imagine hosting a giant party.
 
 - CIDR notation saves space and adds flexibility.
 - Subnetting helps isolate traffic, secure systems, and better use IP ranges.
+- 
+---
+
 
 
 
