@@ -31,7 +31,7 @@ Private IP ranges:
 - `172.16.0.0 – 172.31.255.255` (Class B)
 - `192.168.0.0 – 192.168.255.255` (Class C)
 
- **Tip**: Private IPs use **NAT** (Network Address Translation) to access the internet.
+ **Tip**: Private IPs use **NAT** (Network Address Translation) to access the internet in other words, Private IP -> NAT -> Public IP.
 
 ---
 
