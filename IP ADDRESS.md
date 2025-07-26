@@ -182,6 +182,18 @@ An IP address is **32 bits** total, split into:
 
 We **borrow bits from the host portion** to create more subnets.
 
+**When you subnet, you borrow bits from the host portion to create more networks, which means more subnets, but fewer hosts in each one.**
+
+## Think of it Like This
+
+| What You Do                              | What Happens                                   |
+|--------------------------------------------|--------------------------------------------------|
+| Borrow bits from host portion              | You get **more subnets**                         |
+| Increase subnet mask (e.g., /24 → /26)     | Each subnet gets **fewer usable host IPs**       |
+| Shrink host space                          | **Reduce broadcast traffic**, increase **security & control** |
+| Trade big flat network                     | For **multiple smaller, organized subnets**      |
+
+
 ### Formula:
 2^n ≥ number of required subnets
 
@@ -230,40 +242,6 @@ Solve for `n` → this is the number of bits to borrow.
 
 > Borrowing bits allows you to create more subnets by shrinking the number of available host IPs.  
 > This helps you organize, secure, and scale your network more efficiently.
-
----
-
-##  Subnetting Example
-
-**Goal**: Divide `192.168.1.0/24` into 4 subnets
-
-**Step 1**: How many bits do you need?  
-→ `2^n ≥ 4` → `n = 2`
-
-**Step 2**: Add to the CIDR  
-→ `/24 + 2 = /26`
-
-**Step 3**: Block size  
-→ `2^(32 - 26) = 64` addresses per subnet
-
----
-
-### 🧾 Final Subnets:
-
-| Subnet # | IP Range                     |
-|----------|------------------------------|
-| 1        | 192.168.1.0 – 192.168.1.63    |
-| 2        | 192.168.1.64 – 192.168.1.127  |
-| 3        | 192.168.1.128 – 192.168.1.191 |
-| 4        | 192.168.1.192 – 192.168.1.255 |
-
----
-
-###  For Subnet `192.168.1.0/26`
-
-- **Network Address**: `192.168.1.0`
-- **Broadcast Address**: `192.168.1.63`
-- **Valid Hosts**: `192.168.1.1 – 192.168.1.62`
 
 ---
 
