@@ -248,6 +248,42 @@ Solve for `n` → this is the number of bits to borrow.
 - CIDR notation saves space and adds flexibility.
 - Subnetting helps isolate traffic, secure systems, and better use IP ranges.
 ---
+## Default Gateway
+
+A **default gateway** is the IP address of a device (usually a router) that connects your local subnet to external networks — like the internet.
+
+- Devices send packets to this IP if the destination is outside their subnet.
+- Every subnet usually has **one default gateway**.
+---
+
+## 🔐 What Is a MAC Address?
+
+A **MAC (Media Access Control) address** is a **unique identifier** burned into the **network interface card (NIC)** of a device.
+
+> Think of it like the **serial number** for your network hardware.
+
+**Example:**  
+`00:1A:2B:3C:4D:5E`
+
+---
+
+## 📌 Why You Should Know It — Especially in Cybersecurity
+
+| 🧪 Use Case                      | 💡 Why It Matters                                                                 |
+|----------------------------------|------------------------------------------------------------------------------------|
+| **Device Tracking**              | Each MAC is unique — helps **identify specific devices** even if their IP changes. |
+| **Network Access Control (NAC)** | Allows you to **whitelist/block devices** based on MAC addresses.                 |
+| **Packet Sniffing**              | Tools like **Wireshark** show MACs — you need to **read/analyze** them.           |
+| **MITM Defense**                 | MAC spoofing is used in **Man-in-the-Middle attacks**. Helps detect rogue actors. |
+| **DHCP/IP Assignments**          | Routers assign IPs **based on MACs**. Great for setting static IPs in a network.  |
+| **ARP Poisoning Attacks**        | ARP attacks rely on spoofed MACs. Knowing MAC behavior helps defend against this. |
+
+---
+
+## 🧠 TL;DR
+
+> MAC addresses are your **hardware-level identity** on a network.  
+> If **IP addresses** are your **street address**, then **MAC addresses** are your **fingerprints**.
 
 
 
